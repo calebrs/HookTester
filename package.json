@@ -12,7 +12,8 @@
   "dependencies": {
     "config": "^3.3.7",
     "express": "^4.17.2",
-    "mongoose": "^6.1.9"
+    "mongoose": "^6.1.9",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

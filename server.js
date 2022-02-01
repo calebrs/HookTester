@@ -1,10 +1,11 @@
 const express = require("express");
-// const connectDB = require("./config/db.js");
+// const connectMongoDB = require("./config/mongodb.js");
+// const connectPostgresDB = require("./config/postgresdb.js"); ??
 
 const app = express();
 
 // connect to mongo database
-// connectDB();
+// connectMongoDB();
 
 // init middleware
 app.use(express.json({ extended: false }));
