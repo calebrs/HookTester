@@ -1,5 +1,3 @@
 {
-  "mongoURI": "",
-  "pgPassword": "",
-  "pgUser": ""
+  "mongoURI": ""
 }
