@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const UrlSchema = new Schema({
   url: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "url",
+    type: String,
   },
   createdAt: {
     type: Date,
@@ -37,4 +36,4 @@ const UrlSchema = new Schema({
   ],
 });
 
-module.exports = Url = mongoose.model("url", PostSchema);
+module.exports = Url = mongoose.model("url", UrlSchema);
