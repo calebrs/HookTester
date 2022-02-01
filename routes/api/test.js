@@ -6,7 +6,7 @@ const router = express.Router();
 // @access Public
 router.get("/", (req, res) => {
   try {
-    res.send("Test Route Works!");
+    res.json({ test: "The Test Route Works!" });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
