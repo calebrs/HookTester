@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const config = require("config");
-const db = config.get("mongoURI"); // uses the config dependancy to grab the value store in the config/default.json file
+const url = `mongodb+srv://hooktesteradmin:${process.env.PASSWORD}@cluster0.ujwnw.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(db, {
+    await mongoose.connect(url, {
       useNewUrlParser: true,
     });
     console.log("MongoDB Connected...");
