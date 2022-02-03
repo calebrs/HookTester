@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import axios from 'axios';
 import Header from './Header';
 import RequestList from './RequestList';
-import { baseURL, publicURL, COLORS } from '../constants.js';
+import { baseURL, COLORS } from '../constants.js';
 
 const InspectPage = () => {
   const { url } = useParams();
