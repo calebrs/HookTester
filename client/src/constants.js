@@ -1,5 +1,4 @@
 export const COLORS = {
-  pink: "hsl(295, 100%, 94%)",
   purple: "hsl(256, 53%, 70%)",
   darkPurple: "hsl(260,100%,15%)",
   transparentPurple: "hsla(80, 10%, 100%, 0.8)",
