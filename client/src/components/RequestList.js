@@ -4,6 +4,7 @@ import RequestDetails from './RequestDetails';
 import { COLORS } from '../constants.js';
 
 const RequestList = ({ requests }) => {
+  requests.sort((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp));
   console.log(requests);
   const [ currRequest, setCurrRequest ] = useState();
 
