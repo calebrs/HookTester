@@ -22,7 +22,7 @@ const InspectPage = () => {
   return (
     <Container>
       <Header />
-      <Info><h3>Your new URL is: {publicURL}/r/{url}</h3></Info>
+      <Info><h3>Your new URL is: {baseURL}/r/{url}</h3></Info>
       <RequestList requests={requests} />
     </Container>
   );

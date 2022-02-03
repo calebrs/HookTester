@@ -10,4 +10,3 @@ export const COLORS = {
 };
 
 export const baseURL = 'https://htb.seanrichardson.dev';
-export const publicURL = 'https://hooktester.seanrichardson.dev';
