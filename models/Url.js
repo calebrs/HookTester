@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const RequestSchema = require("./Request.js");
 
 const UrlSchema = new Schema({
   url: {
@@ -11,27 +12,8 @@ const UrlSchema = new Schema({
   },
   requests: [
     {
-      method: {
-        type: String,
-      },
-      host: {
-        type: String,
-      },
-      path: {
-        type: String,
-      },
-      created: {
-        type: Date,
-      },
-      parameters: {
-        type: String,
-      },
-      headers: {
-        type: Object,
-      },
-      body: {
-        type: String,
-      },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'request'
     },
   ],
 });

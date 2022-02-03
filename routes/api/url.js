@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Url = require("../../models/Url.js"); // schema
+const utils = require("../../utils.js")
 
 function customUrl() {
   const getRanHex = size => {
@@ -12,12 +13,12 @@ function customUrl() {
     }
     return result.join('');
   }
-  return getRanHex(7)
+  return getRanHex(7);
 }
 
-async function alreadyExist(url) { // move to separate file later
-  return await Url.findOne({ url }).exec();
-}
+// async function alreadyExist(url) { // move to separate file later
+//   return await Url.findOne({ url }).exec();
+// }
 
 // @route POST api/url
 // @desc posts webhook request to DB
@@ -25,7 +26,7 @@ async function alreadyExist(url) { // move to separate file later
 router.post("/", async (req, res) => {
   try {
     let url = customUrl();
-    while (await alreadyExist(url)) {
+    while (await utils.alreadyExist(url)) {
       url = customUrl();
     }
 
@@ -36,7 +37,8 @@ router.post("/", async (req, res) => {
     })
 
     const newEntry = await newUrl.save();
-    res.json(newEntry); // response to front end
+    // display r/ in frontend
+    res.redirect(`/inspect/${newUrl}`); // response to front end
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
