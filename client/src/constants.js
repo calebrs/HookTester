@@ -9,4 +9,4 @@ export const COLORS = {
   lightGray: "hsl(200, 10%, 80%)"
 };
 
-export const baseURL = 'http://htb.seanrichardson.dev';
+export const baseURL = 'https://htb.seanrichardson.dev';
