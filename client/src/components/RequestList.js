@@ -38,7 +38,7 @@ const RequestList = ({ requests }) => {
 
 const Container = styled.div`
   display: flex;
-  height: 100%;
+  min-height: 100%;
 `;
 
 const ListWrapper = styled.div`

@@ -27,10 +27,6 @@ const RequestDetails = ({ requests, currRequest }) => {
             <Td>Method</Td>
             <Td>{req.method}</Td>
           </tr>
-          <tr>
-            <Td>Source</Td>
-            <Td>{req.source}</Td>
-          </tr>
         </tbody>
       </Table>
       <Table>
