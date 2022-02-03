@@ -32,13 +32,14 @@ router.post("/", async (req, res) => {
 
     const newUrl = new Url({
       url,
-      createdAt: Date.now(),
+      createdAt: new Date(),
       requests: [],
     })
 
     const newEntry = await newUrl.save();
     // display r/ in frontend
-    res.redirect(`/inspect/${newUrl}`); // response to front end
+    res.send({ url });
+    // res.redirect(`/inspect/${url}`); // response to front end
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

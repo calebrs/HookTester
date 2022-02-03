@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const connectMongoDB = require("./config/mongodb.js");
+const cors = require("cors");
 
 const app = express();
 
@@ -10,8 +11,16 @@ const db = connectMongoDB();
 // init middleware
 app.use(express.json({ extended: false }));
 
+// CORS
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  next();
+});
+
 app.get("/", (req, res) => {
-  res.send("API Running"); // render frontpage here
+  res.render('index'); // render frontpage here
 });
 
 // define routes
