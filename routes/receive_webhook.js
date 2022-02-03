@@ -7,7 +7,7 @@ const utils = require("../utils.js");
 // @route POST receive_webhook
 // @desc posts request data to custom url bin
 // @access Public
-router.post("/:url", async (req, res) => {
+router.all("/:url", async (req, res) => {
   try {
     const url = req.params.url
     const urlMongo = await utils.alreadyExist(url);
