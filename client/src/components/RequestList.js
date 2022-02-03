@@ -19,7 +19,7 @@ const RequestList = ({ requests }) => {
         <List>
           {requests.map(req => {
             return (
-              <ReqListItem key={req._id} id={req._id} onClick={handleSelectItem}>
+              <ReqListItem key={req._id} id={req._id} onClick={handleSelectItem} active={currRequest === req._id}>
                 {req.timestamp}
               </ReqListItem>
             );
@@ -56,6 +56,8 @@ const List = styled.ul`
 
 const ReqListItem = styled.li`
   border: 2px solid ${COLORS.seagreen};
+  background-color: ${props => props.active ? COLORS.seagreen : "transparent"};
+  color: ${props => props.active ? COLORS.darkPurple : "white"};
   border-radius: 4px;
   font-size: 0.8rem;
   padding: 15px;
