@@ -8,7 +8,8 @@ const RequestList = ({ requests }) => {
   const [ currRequest, setCurrRequest ] = useState();
 
   const handleSelectItem = (e) => {
-    setCurrRequest(e.target.req_id);
+    console.log(e.target.id);
+    setCurrRequest(e.target.id);
   };
 
   return (
@@ -18,32 +19,33 @@ const RequestList = ({ requests }) => {
         <List>
           {requests.map(req => {
             return (
-              <ReqListItem key={req._id} onClick={handleSelectItem}>
+              <ReqListItem key={req._id} id={req._id} onClick={handleSelectItem}>
                 {req.timestamp}
               </ReqListItem>
             );
           })}
         </List>
       </ListWrapper>
-      <RequestDetails requests={requests} requestId={currRequest} />
+      {currRequest && <RequestDetails requests={requests} requestId={currRequest} />}
     </Container>
   );
 };
 
 const Container = styled.div`
   display: flex;
-  height: calc(100vh - 144px);
+  height: 100%;
 `;
 
 const ListWrapper = styled.div`
-  border: 1px solid ${COLORS.darkGray};
+  background-color: ${COLORS.darkPurple};
+  color: white;
   padding: 20px;
   height: 100%;
   width: 20%;
 `;
 
 const Title = styled.h2`
-  color: ${COLORS.purple};
+  color: ${COLORS.white};
   text-align: center;
 `;
 
@@ -59,9 +61,10 @@ const ReqListItem = styled.li`
   padding: 15px;
   margin: 10px 0;
 
-  &:hover {
+  &:hover, &:active {
     cursor: pointer;
     background-color: ${COLORS.seagreen};
+    color: ${COLORS.darkPurple};
   }
 `;
 

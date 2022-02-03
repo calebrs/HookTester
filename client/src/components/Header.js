@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { COLORS } from '../constants.js';
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
 };
 
 const HeaderBar = styled.div`
-  background-color: hsl(260,100%,15%);
+  background-color: ${COLORS.darkPurple};
   color: white;
   padding: 10px 20px;
 `;

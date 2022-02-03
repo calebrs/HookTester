@@ -17,7 +17,6 @@ router.get("/:url", async (req, res) => {
     // pull from schema
     // urlMongo.requests == the ids
     const requests = await urlMongo.populate('requests');
-    console.log(requests);
     res.json(requests);
   } catch (err) {
     console.error(err.message);
