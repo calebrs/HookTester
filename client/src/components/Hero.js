@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const TextArea = styled.div`
-  background-color: ${COLORS.darkPurple};
+  background-color: ${COLORS.transparentPurple};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
