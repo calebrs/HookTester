@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import RequestDetails from './RequestDetails';
 import { COLORS } from '../constants.js';
 
 const RequestList = ({ requests }) => {
-  console.log(requests);
-  const [ currRequest, setCurrRequest ] = useState();
+  requests.sort((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp));
+  const [ currRequest, setCurrRequest ] = useState(requests.length > 0 ? requests[0]['_id'] : undefined); //
+
+  useEffect(() => {
+    if (requests.length > 0) {
+      setCurrRequest(requests[0]['_id']);
+    }
+  }, [requests]);
 
   const handleSelectItem = (e) => {
-    console.log(e.target.id);
     setCurrRequest(e.target.id);
   };
 
@@ -26,7 +31,7 @@ const RequestList = ({ requests }) => {
           })}
         </List>
       </ListWrapper>
-      {currRequest && <RequestDetails requests={requests} requestId={currRequest} />}
+      <RequestDetails requests={requests} currRequest={currRequest} />
     </Container>
   );
 };
@@ -40,8 +45,8 @@ const ListWrapper = styled.div`
   background-color: ${COLORS.darkPurple};
   color: white;
   padding: 20px;
-  height: 100%;
-  width: 20%;
+  min-width: 250px;
+  overflow: auto;
 `;
 
 const Title = styled.h2`

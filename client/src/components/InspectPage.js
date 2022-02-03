@@ -12,13 +12,11 @@ const InspectPage = () => {
 
   useEffect(() => {
     const fetchRequests = async () => {
-      console.log("fetching");
       const response = await axios.get(`${baseURL}/inspect/${url}`);
       setRequests(response.data.requests);
     };
 
     fetchRequests();
-    console.log("fetched");
   }, []);
 
   return (
@@ -31,6 +29,7 @@ const InspectPage = () => {
 };
 
 const Container = styled.div`
+  height: 100%;
 `;
 
 const Info = styled.div`

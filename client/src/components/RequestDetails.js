@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { COLORS } from '../constants.js';
 
-const RequestDetails = ({ requests, requestId }) => {
+const RequestDetails = ({ requests, currRequest }) => {
+  const [ requestId, setRequestId ] = useState(currRequest);
+
+  useEffect(() => {
+    setRequestId(currRequest);
+  }, [currRequest]);
+
+  if (!requestId) {
+    return <NoneMessage>No requests yet!</NoneMessage>;
+  }
+
   const req = requests.find(elem => elem._id === requestId);
   return (
     <Wrapper>
@@ -23,7 +33,6 @@ const RequestDetails = ({ requests, requestId }) => {
           </tr>
         </tbody>
       </Table>
-      {/* <h2>Headers</h2> */}
       <Table>
         <thead>
           <tr>
@@ -46,9 +55,18 @@ const RequestDetails = ({ requests, requestId }) => {
   );
 };
 
+const NoneMessage = styled.div`
+  color: ${COLORS.darkPurple};
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+`;
+
 const Wrapper = styled.div`
   text-align: center;
   width: 100%;
+  padding: 20px;
+  color: ${COLORS.darkPurple};
 `;
 
 const Table = styled.table`
