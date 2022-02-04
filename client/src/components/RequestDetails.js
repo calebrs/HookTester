@@ -60,7 +60,7 @@ const RequestDetails = ({ requests, currRequest }) => {
             return (
               <tr key={key}>
                 <Td>{key}</Td>
-                <Td>{req.body[key]}</Td>
+                <Td>{JSON.stringify(req.body[key])}</Td>
               </tr>
             );
           })}
