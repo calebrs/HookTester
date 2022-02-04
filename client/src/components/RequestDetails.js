@@ -47,6 +47,26 @@ const RequestDetails = ({ requests, currRequest }) => {
           })}
         </tbody>
       </Table>
+      {req.body &&
+      <Table>
+        <thead>
+          <tr>
+            <th>Body Key</th>
+            <th>Body Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(req.body).map(key => {
+            return (
+              <tr key={key}>
+                <Td>{key}</Td>
+                <Td>{req.body[key]}</Td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+      }
     </Wrapper>
   );
 };
