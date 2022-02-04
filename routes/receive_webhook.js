@@ -21,7 +21,6 @@ router.all("/:url", async (req, res) => {
       timestamp: Date.now(),
       headers: utils.convertHeaders(req.rawHeaders),
       body: req.body,
-      // raw: req.text(),
     })
 
     const success = await newRequest.save();
