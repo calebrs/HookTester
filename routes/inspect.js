@@ -14,10 +14,9 @@ router.get("/:url", async (req, res) => {
     if (!urlMongo) {
       res.status(404).send("URL doesn't exist");
     }
-    // pull from schema
+    // pull from db
     // urlMongo.requests == the ids
     const requests = await urlMongo.populate('requests');
-    console.log(requests);
     res.json(requests);
   } catch (err) {
     console.error(err.message);

@@ -18,11 +18,9 @@ router.all("/:url", async (req, res) => {
     // push back onto mongo
     const newRequest = new Request({
       method: req.method,
-      source: req.originalUrl,
       timestamp: Date.now(),
       headers: utils.convertHeaders(req.rawHeaders),
       body: req.body,
-      // raw: req.text(),
     })
 
     const success = await newRequest.save();

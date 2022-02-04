@@ -16,10 +16,6 @@ function customUrl() {
   return getRanHex(7);
 }
 
-// async function alreadyExist(url) { // move to separate file later
-//   return await Url.findOne({ url }).exec();
-// }
-
 // @route POST api/url
 // @desc posts webhook request to DB
 // @access Public
@@ -37,22 +33,12 @@ router.post("/", async (req, res) => {
     })
 
     const newEntry = await newUrl.save();
-    // display r/ in frontend
     res.send({ url });
-    // res.redirect(`/inspect/${url}`); // response to front end
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
-
-// @route GET api/url
-// @desc gets all webhook requests made to Url
-// @access Public
-
-// get request to base/:url/inspect
-// make request to mongoDB using :url
-// populate and render the page
 
 
 module.exports = router;

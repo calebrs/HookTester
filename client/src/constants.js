@@ -1,7 +1,7 @@
 export const COLORS = {
-  pink: "hsl(295, 100%, 94%)",
   purple: "hsl(256, 53%, 70%)",
-  darkPurple: "hsla(80, 10%, 100%, 0.8)",
+  darkPurple: "hsl(260,100%,15%)",
+  transparentPurple: "hsla(80, 10%, 100%, 0.8)",
   blue: "hsl(217, 83%, 71%)",
   turquoise: "hsl(179, 67%, 57%)",
   seagreen: "hsl(138, 80%, 90%)",
@@ -9,4 +9,4 @@ export const COLORS = {
   lightGray: "hsl(200, 10%, 80%)"
 };
 
-export const baseURL = 'http://localhost:3001';
+export const baseURL = 'https://htb.seanrichardson.dev';
