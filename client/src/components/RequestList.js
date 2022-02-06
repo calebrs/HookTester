@@ -46,6 +46,7 @@ const ListWrapper = styled.div`
   color: white;
   padding: 20px;
   min-width: 250px;
+  max-width: 300px;
   overflow: auto;
 `;
 
