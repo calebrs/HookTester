@@ -81,7 +81,6 @@ const NoneMessage = styled.div`
 const Wrapper = styled.div`
   text-align: center;
   max-width: calc(100vw - 280px);
-  overflow-x: scroll;
   padding: 20px;
   color: ${COLORS.darkPurple};
 `;
@@ -95,8 +94,7 @@ const Td = styled.td`
   border: 1px solid ${COLORS.blue};
   padding: 10px 20px;
   max-width: 100%;
-  max-width: min(calc(100vw - 450px), 1000px);
-  overflow: scroll;
+  max-width: min(calc(98vw - 450px), 1000px);
   overflow-wrap: break-word;
 
   &:first-of-type {
