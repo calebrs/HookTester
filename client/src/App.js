@@ -5,12 +5,11 @@ import './App.css';
 import * as waypost from 'waypost-sdk-react';
 const { Config, WaypostProvider } = waypost;
 
-const config = new Config('12345', "http://localhost:5000", 1000).connect();
-const sdkClient = config.client;
+const config = new Config('12345', "http://localhost:5000", 1000);
 
 function App() {
   return (
-    <WaypostProvider sdkClient={sdkClient}>
+    <WaypostProvider config={config}>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<HomePage />} />

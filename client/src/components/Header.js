@@ -5,9 +5,10 @@ import { WaypostContext } from 'waypost-sdk-react';
 
 const Header = () => {
   const { sdkClient } = useContext(WaypostContext);
-  console.log(sdkClient);
-
-  if (sdkClient.evaluateFlag('Turquoise Header', true)) {
+  const turquoiseHeader = sdkClient.evaluateFlag('Turquoise Header', false);
+  console.log(turquoiseHeader);
+  // TODO: Make sure it rerenders when flag status has changed (polling, SSE, or websockets?)
+  if (turquoiseHeader) {
     return (
       <HeaderBarB>
         <PlainAnchor href="/"><h1>HookTester&#129693;</h1></PlainAnchor>
