@@ -5,7 +5,7 @@ import './App.css';
 import * as waypost from 'waypost-sdk-react';
 const { Config, WaypostProvider } = waypost;
 
-const config = new Config('12345', "http://localhost:5000", 1000);
+const config = new Config('12345', "http://localhost:5000");
 
 function App() {
   return (
