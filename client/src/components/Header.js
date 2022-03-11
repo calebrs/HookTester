@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { COLORS } from '../constants.js';
+import { UserContext } from '../App';
 import { WaypostContext } from 'waypost-sdk-react';
 
 const Header = () => {
   const { sdkClient } = useContext(WaypostContext);
+  const { userId } = useContext(UserContext);
+
+  useEffect(() => {
+    sdkClient.addContext({ userId: userId });
+  }, [sdkClient, userId]);
+
   const turquoiseHeader = sdkClient.evaluateFlag('Turquoise Header', false);
-  console.log(turquoiseHeader);
-  // TODO: Make sure it rerenders when flag status has changed (polling, SSE, or websockets?)
   if (turquoiseHeader) {
     return (
       <HeaderBarB>

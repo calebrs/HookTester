@@ -5,7 +5,7 @@ import Header from './Header';
 import Hero from './Hero';
 import { baseURL } from '../constants';
 
-const HomePage = () => {
+const HomePage = ({ setUserId }) => {
   const navigate = useNavigate();
 
   const createUrl = async (e) => {
@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <Hero handleClick={createUrl} />
+      <Hero handleClick={createUrl} setUserId={setUserId}/>
     </>
   );
 };
