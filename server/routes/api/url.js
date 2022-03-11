@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Url = require("../../models/Url.js"); // schema
-const utils = require("../../utils.js")
+const utils = require("../../utils.js");
+const sdkClient = require("../../waypost-sdk.js");
 
 function customUrl() {
   const getRanHex = size => {
@@ -13,6 +14,21 @@ function customUrl() {
     }
     return result.join('');
   }
+
+  // For feature flag test
+  const getRandNum = size => {
+    let result = [];
+    for (let n = 0; n < size; n++) {
+      result.push(Math.floor(Math.random() * size).toString());
+    }
+    return result.join('');
+  }
+
+  // nothing logs but somehow still calling getRanHex()??
+  // console.log(sdkClient);
+  // const useHex = sdkClient.evaluateFlag("URL_with_hex"); // currently FALSE
+  // console.log(useHex);
+  // if (useHex) {
   return getRanHex(7);
 }
 
@@ -22,6 +38,7 @@ function customUrl() {
 router.post("/", async (req, res) => {
   try {
     let url = customUrl();
+    console.log(url); // nothing logs
     while (await utils.alreadyExist(url)) {
       url = customUrl();
     }
