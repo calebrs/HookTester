@@ -12,6 +12,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
+    "waypost-sdk-react": "file:../../waypost-sdk-react/waypost-sdk-react-1.0.0.tgz",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -38,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://htb.seanrichardson.dev"
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.7"
+  }
 }

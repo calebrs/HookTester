@@ -18,7 +18,7 @@ const InspectPage = () => {
     };
 
     fetchRequests();
-  }, []);
+  }, [url]);
 
   const binUrl = `${baseURL}/r/${url}`;
 
