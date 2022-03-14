@@ -39,7 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://htb.seanrichardson.dev",
+  "proxy": "http://localhost:3001",
   "devDependencies": {
     "@babel/preset-react": "^7.16.7"
   }

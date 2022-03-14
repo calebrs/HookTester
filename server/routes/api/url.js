@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Router();
 const Url = require("../../models/Url.js"); // schema
 const utils = require("../../utils.js");
-const sdkClient = require("../../waypost-sdk.js");
 
-function customUrl() {
+const router = express.Router();
+
+function customUrl(sdkClient) {
   const getRanHex = size => {
     let result = [];
     let hexRef = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
@@ -24,12 +24,12 @@ function customUrl() {
     return result.join('');
   }
 
-  // nothing logs but somehow still calling getRanHex()??
-  // console.log(sdkClient);
-  // const useHex = sdkClient.evaluateFlag("URL_with_hex"); // currently FALSE
-  // console.log(useHex);
-  // if (useHex) {
-  return getRanHex(7);
+  const useHex = sdkClient.evaluateFlag("URL with hex"); // currently FALSE
+  if (useHex) {
+    return getRanHex(7);
+  } else {
+    return getRandNum(7);
+  }
 }
 
 // @route POST api/url
@@ -37,8 +37,7 @@ function customUrl() {
 // @access Public
 router.post("/", async (req, res) => {
   try {
-    let url = customUrl();
-    console.log(url); // nothing logs
+    let url = customUrl(req.sdkClient); // Pass the req.sdkClient to the function here
     while (await utils.alreadyExist(url)) {
       url = customUrl();
     }
@@ -48,7 +47,6 @@ router.post("/", async (req, res) => {
       createdAt: new Date(),
       requests: [],
     })
-
     const newEntry = await newUrl.save();
     res.send({ url });
   } catch (err) {
