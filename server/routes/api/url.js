@@ -15,21 +15,7 @@ function customUrl(sdkClient) {
     return result.join('');
   }
 
-  // For feature flag test
-  const getRandNum = size => {
-    let result = [];
-    for (let n = 0; n < size; n++) {
-      result.push(Math.floor(Math.random() * size).toString());
-    }
-    return result.join('');
-  }
-
-  const useHex = sdkClient.evaluateFlag("URL with hex"); // currently FALSE
-  if (useHex) {
-    return getRanHex(7);
-  } else {
-    return getRandNum(7);
-  }
+  return getRanHex(7);
 }
 
 // @route POST api/url

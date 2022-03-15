@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components/macro';
 import { COLORS } from '../constants.js';
-import { WaypostContext } from 'waypost-sdk-react';
 import { UserContext } from '../App';
 
 const Hero = ({ handleClick }) => {
-  const { sdkClient } = useContext(WaypostContext);
   const { setUserId } = useContext(UserContext);
   const [ newUserId, setNewUserId ] = useState('');
 
@@ -13,8 +11,6 @@ const Hero = ({ handleClick }) => {
     e.preventDefault();
     setUserId(newUserId);
     localStorage.setItem("hooktester-userId", newUserId);
-    sdkClient.addContext({ userId: newUserId });
-    console.log(sdkClient.context);
   };
 
   return (
